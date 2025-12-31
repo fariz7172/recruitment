@@ -141,7 +141,7 @@ class WarteggTestSeeder extends Seeder
             PsychometricQuestion::create([
                 'test_id' => $test->id,
                 'question_text' => $q['description'],
-                'question_type' => 'wartegg',
+                'question_type' => 'likert',
                 'options' => $q['options'],
                 'dimension' => $q['dimension'],
                 'order' => $index + 1,
