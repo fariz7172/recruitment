@@ -37,8 +37,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('application_id')->constrained('applications')->onDelete('cascade');
             $table->foreignId('test_id')->constrained('psychometric_tests')->onDelete('cascade');
-            $table->json('answers'); // All answers
-            $table->json('scores'); // Calculated scores per dimension
+            $table->json('answers')->nullable(); // All answers
+            $table->json('scores')->nullable(); // Calculated scores per dimension
             $table->string('primary_type')->nullable(); // e.g., "D" for DISC
             $table->string('secondary_type')->nullable();
             $table->text('analysis')->nullable(); // AI-generated analysis
