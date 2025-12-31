@@ -25,11 +25,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('test_id')->constrained('psychometric_tests')->onDelete('cascade');
             $table->text('question_text');
-            $table->enum('question_type', ['likert', 'multiple_choice', 'forced_choice'])->default('likert');
+            $table->enum('question_type', ['likert', 'multiple_choice', 'forced_choice', 'pattern_sequence'])->default('likert');
             $table->json('options'); // Answer options
             $table->string('dimension')->nullable(); // e.g., "D", "I", "S", "C" for DISC
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);
+            $table->json('settings')->nullable(); // Additional settings for pattern-based questions
             $table->timestamps();
         });
 
