@@ -1,66 +1,274 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧠 ScreeningAI - Sistem Rekrutmen Berbasis AI
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-10-red?logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.1+-blue?logo=php)
+![AI](https://img.shields.io/badge/AI-Groq%20Llama%203.3-green)
 
-## About Laravel
+Sistem rekrutmen modern yang menggunakan **Artificial Intelligence** untuk screening CV/Resume kandidat secara otomatis. Dilengkapi dengan fitur **Tes Psikometri** untuk evaluasi kepribadian dan kemampuan kognitif.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+| Fitur | Deskripsi |
+|-------|-----------|
+| 🤖 **AI Screening** | Analisis CV otomatis menggunakan Groq Llama 3.3 70B |
+| 📄 **OCR PDF** | Ekstraksi teks dari file PDF menggunakan Smalot PDF Parser |
+| 📊 **Tes Psikometri** | Tes DISC, Kognitif, dan kepribadian lainnya |
+| 📈 **Scoring System** | Skor kesesuaian 0-100 untuk setiap kandidat |
+| 🎯 **Rekomendasi Otomatis** | SANGAT_SESUAI, SESUAI, PERTIMBANGKAN, TIDAK_SESUAI |
+| 🗑️ **Auto Cleanup** | Hapus CV otomatis jika ditolak/tidak sesuai |
+| 👤 **Multi Role** | Admin dan Kandidat dengan hak akses berbeda |
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🖼️ Screenshots
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Landing Page
+Halaman utama dengan informasi lowongan terbaru dan fitur aplikasi.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Dashboard Admin
+Panel kontrol untuk mengelola lowongan dan melihat statistik lamaran.
 
-## Laravel Sponsors
+### AI Screening Result
+Hasil analisis AI dengan breakdown skor, skill match, dan rekomendasi.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 📋 Panduan Penggunaan
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 1️⃣ Untuk Pelamar (Public)
 
-## Contributing
+1. **Lihat Lowongan**
+   - Buka halaman utama atau menu "Lowongan"
+   - Pilih posisi yang diminati
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Lamar Pekerjaan**
+   - Klik "Lamar Sekarang" pada lowongan yang dipilih
+   - Isi form lamaran:
+     - Nama lengkap
+     - Email
+     - No. Telepon/WhatsApp (opsional)
+     - Upload CV (PDF/JPG/PNG, max 2MB)
+     - Catatan tambahan (opsional)
+   - Klik "Kirim Lamaran"
 
-## Code of Conduct
+3. **Menunggu Hasil**
+   - CV akan dianalisis secara otomatis oleh AI
+   - Jika lolos seleksi awal, akun kandidat akan dibuat otomatis
+   - Cek email untuk informasi login
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 2️⃣ Untuk Admin
 
-## Security Vulnerabilities
+1. **Login**
+   - Akses `/login`
+   - Masukkan kredensial admin
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. **Kelola Lowongan**
+   - Menu "Lowongan Kerja" → Lihat semua lowongan
+   - Klik "Buat Lowongan" untuk membuat posisi baru
+   - Isi detail: judul, deskripsi, departemen, lokasi, skill yang dibutuhkan, dll.
 
-## License
+3. **Review Lamaran**
+   - Menu "Lamaran Masuk" → Lihat semua aplikasi
+   - Filter berdasarkan status atau lowongan
+   - Klik pada lamaran untuk melihat detail
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4. **AI Screening**
+   - Pada halaman detail lamaran, klik "Screening AI"
+   - Sistem akan menganalisis CV dan memberikan:
+     - Skor kesesuaian (0-100)
+     - Analisis skill match
+     - Rekomendasi keputusan
+     - Ringkasan profil kandidat
+
+5. **Tes Psikometri**
+   - Untuk kandidat yang lolos, akses menu Tes Psikometri
+   - Pilih jenis tes (DISC, Kognitif, dll.)
+   - Lihat hasil dan analisis kepribadian
+
+6. **Update Status**
+   - Ubah status lamaran: Pending → Reviewed → Shortlisted → Hired/Rejected
+   - CV akan otomatis dihapus jika status = Rejected
+
+### 3️⃣ Untuk Kandidat (Setelah Login)
+
+1. **Login dengan akun yang diberikan**
+   - Email: (email saat melamar)
+   - Password: `password` (default)
+
+2. **Lihat Status Lamaran**
+   - Cek progress lamaran di dashboard
+
+3. **Ikuti Tes Psikometri**
+   - Jika diminta, ikuti tes psikometri
+   - Jawab pertanyaan dengan jujur
+   - Lihat hasil analisis kepribadian
+
+---
+
+## 🛠️ Instalasi & Setup
+
+### Prasyarat
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- Node.js & NPM (opsional, untuk Vite)
+
+### Langkah Instalasi
+
+```bash
+# 1. Clone repository
+git clone https://github.com/fariz7172/recruitment.git
+cd recruitment
+
+# 2. Install dependencies
+composer install
+
+# 3. Copy file environment
+cp .env.example .env
+
+# 4. Generate application key
+php artisan key:generate
+
+# 5. Konfigurasi database di .env
+# DB_DATABASE=recruitment
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# 6. Jalankan migrasi & seeder
+php artisan migrate --seed
+
+# 7. Buat symbolic link untuk storage
+php artisan storage:link
+
+# 8. Jalankan aplikasi
+php artisan serve
+```
+
+### Konfigurasi AI (Groq)
+
+1. Daftar di [console.groq.com](https://console.groq.com) (GRATIS)
+2. Buat API Key
+3. Tambahkan ke file `.env`:
+
+```env
+GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxx
+```
+
+---
+
+## 📤 Push ke GitHub
+
+### Jika Belum Ada Repository Git
+
+```bash
+# 1. Inisialisasi git
+git init
+
+# 2. Tambahkan semua file
+git add .
+
+# 3. Commit pertama
+git commit -m "Initial commit - Laravel Recruitment System"
+
+# 4. Rename branch ke main (atau nama lain)
+git branch -M main
+
+# 5. Tambahkan remote origin
+git remote add origin https://github.com/USERNAME/REPO_NAME.git
+
+# 6. Push ke GitHub
+git push -u origin main
+```
+
+### Jika Sudah Ada Repository
+
+```bash
+# 1. Tambahkan perubahan
+git add .
+
+# 2. Commit dengan pesan
+git commit -m "Deskripsi perubahan"
+
+# 3. Push ke GitHub
+git push
+```
+
+### Contoh untuk Repository Ini
+
+```bash
+git remote add origin https://github.com/fariz7172/recruitment.git
+git branch -M farizahmad.github.io
+git push -u origin farizahmad.github.io
+```
+
+---
+
+## 📁 Struktur Folder Penting
+
+```
+recruitment/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── ApplicationController.php   # Kelola lamaran & AI screening
+│   │   ├── JobController.php           # Kelola lowongan
+│   │   └── PsychometricController.php  # Tes psikometri
+│   ├── Models/
+│   │   ├── Application.php             # Model lamaran
+│   │   ├── Job.php                     # Model lowongan
+│   │   └── ScreeningResult.php         # Hasil screening AI
+│   └── Services/
+│       └── GroqScreeningService.php    # Integrasi Groq AI
+├── database/
+│   ├── migrations/                     # Struktur database
+│   └── seeders/                        # Data awal
+├── public/
+│   └── css/app.css                     # Stylesheet utama
+├── resources/views/
+│   ├── applications/                   # View lamaran
+│   ├── jobs/                           # View lowongan
+│   ├── psychometric/                   # View tes psikometri
+│   └── layouts/app.blade.php           # Template utama
+└── routes/web.php                      # Definisi routes
+```
+
+---
+
+## 🔐 Kredensial Default
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@example.com | password |
+| Kandidat | (sesuai email lamaran) | password |
+
+> ⚠️ **Penting**: Ubah password default setelah instalasi!
+
+---
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan:
+1. Fork repository ini
+2. Buat branch fitur (`git checkout -b fitur-baru`)
+3. Commit perubahan (`git commit -m 'Tambah fitur baru'`)
+4. Push ke branch (`git push origin fitur-baru`)
+5. Buat Pull Request
+
+---
+
+## 📄 Lisensi
+
+MIT License - Silakan gunakan dan modifikasi sesuai kebutuhan.
+
+---
+
+## 👨‍💻 Pembuat
+
+**Fariz Ahmad**
+
+- GitHub: [@fariz7172](https://github.com/fariz7172)
+
+---
+
+*Dibuat dengan ❤️ menggunakan Laravel 10 & Groq AI*
