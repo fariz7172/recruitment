@@ -176,8 +176,8 @@ class LogicalReasoningTestSeeder extends Seeder
         foreach ($questions as $index => $q) {
             PsychometricQuestion::create([
                 'test_id' => $test->id,
-                'question_text' => 'Perhatikan pola gambar berikut. Pilih gambar yang melengkapi urutan.',
-                'question_type' => 'pattern_sequence',
+                'question_text' => 'Perhatikan pola gambar berikut (' . $q['description'] . '). Pilih gambar yang melengkapi urutan.',
+                'question_type' => 'multiple_choice',
                 'options' => [
                     ['value' => 'A', 'label' => 'Opsi A', 'correct' => $q['correct'] === 'A'],
                     ['value' => 'B', 'label' => 'Opsi B', 'correct' => $q['correct'] === 'B'],
@@ -187,10 +187,6 @@ class LogicalReasoningTestSeeder extends Seeder
                 'dimension' => $q['dimension'],
                 'order' => $index + 1,
                 'is_active' => true,
-                'settings' => [
-                    'pattern' => $q['pattern'],
-                    'description' => $q['description'],
-                ],
             ]);
         }
 
