@@ -59,7 +59,11 @@ class PsychometricController extends Controller
         // Create or get in-progress result
         $result = PsychometricResult::updateOrCreate(
             ['application_id' => $application->id, 'test_id' => $test->id],
-            ['started_at' => $existingResult?->started_at ?? now()]
+            [
+                'started_at' => $existingResult?->started_at ?? now(),
+                'answers' => $existingResult?->answers ?? [],
+                'scores' => $existingResult?->scores ?? [],
+            ]
         );
 
         // Get questions and randomize order to prevent cheating

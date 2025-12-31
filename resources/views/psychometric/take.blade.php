@@ -44,6 +44,12 @@
                     <p class="mb-0" style="font-size: 1.05rem;">{{ $question->question_text }}</p>
                 </div>
 
+                {{-- Wartegg Stimulus Image --}}
+                @if($test->slug === 'wartegg')
+                    @include('psychometric.partials.wartegg-stimulus', ['box' => $index + 1])
+                @endif
+
+
                 @if($question->question_type === 'multiple_choice')
                 <!-- Multiple Choice (Cognitive/Aptitude Tests) -->
                 <div class="mc-options">
